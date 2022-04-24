@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
+// const dotenv = require('dotenv')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
@@ -24,9 +24,6 @@ mongoose.connect(URI)
 	})
 
 Routers(app)
-// app.get("/",(req,res)=>{
-// 	res.send('hello world')
-// })
 
 app.listen(PORT, ()=>{
 	console.log('Server is running: ',PORT)
