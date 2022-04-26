@@ -16,7 +16,7 @@ const userController = {
 				// username : user.username,
 				admin: user.admin,
 			},
-			process.env.JWT_ACCEPT_KEY,
+			config.JWT_ACCEPT_KEY,
 			{
 				expiresIn: '10h',
 			}
@@ -29,7 +29,7 @@ const userController = {
 				// username : user.username,
 				admin: user.admin,
 			},
-			process.env.JWT_ACCEPT_KEY,
+			config.JWT_ACCEPT_KEY,
 			{
 				expiresIn: '30d',
 			}
@@ -77,7 +77,6 @@ const userController = {
 			if(user && isValidPassword){
 				const acceptToken = userController.generateAcceptToken(user)
 				const refreshToken = userController.generateRefreshToken(user)
-				// localStorage.setItem('refreshToken', JSON.stringify(refreshToken))
 				res.cookie("refreshToken", refreshToken,{
 					httpOnly: true,
 					secure:false,
@@ -163,8 +162,7 @@ const userController = {
 	deleteAProductToCart: async(req,res)=>{
 		try{
 			// console.log(req.body)
-			const user = 
-			await User.findByIdAndUpdate(
+			const user =  await User.findByIdAndUpdate(
 				req.params.id,
 				{$pull:{cart: {item: req.body.item}}},
 				// {cart:[]},

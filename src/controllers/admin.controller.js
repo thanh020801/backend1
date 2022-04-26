@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
+// const dotenv = require('dotenv')
 const SHA256 = require('sha256')
 
 const Product = require('../models/product.model')
 const User = require('../models/user.model')
-dotenv.config()
+// dotenv.config()
 
 const adminController = {
 	// Thêm mới một sản phẩm
