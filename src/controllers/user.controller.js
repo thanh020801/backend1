@@ -29,7 +29,7 @@ const userController = {
 				// username : user.username,
 				admin: user.admin,
 			},
-			config.JWT_ACCEPT_KEY,
+			config.JWT_REFRESH_KEY,
 			{
 				expiresIn: '30d',
 			}

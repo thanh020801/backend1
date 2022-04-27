@@ -1,12 +1,14 @@
 const JWT = require('jsonwebtoken')
 const User = require('../models/user.model')
+const config = require('../config')
 
 const middlewareController = {
 	verifyToken: (req,res,next)=>{
 		const token = req.headers.token
 		if(token){
 			acceptToken = token.split(' ')[1]
-			JWT.verify(acceptToken, process.env.JWT_ACCEPT_KEY, (err, user)=>{
+			// console.log(acceptToken)
+			JWT.verify(acceptToken, config.JWT_ACCEPT_KEY, (err, user)=>{
 				if(err){
 					res.status(403).json('Token của bạn không chính xác. Yêu cầu đăng nhập lại')
 				}
